@@ -29,6 +29,7 @@
 		}
     Console.WriteLine($"your final is {subTotal}, and your tax is {taxAmount}, and your final price is {finalPrice}");
 
-		Console.WriteLine("y/n");
+		Console.Write("Do you want to calculate again? (y/n): ");
+		continueChoice = Console.ReadLine();
 	}while (continueChoice == "y");
 }
