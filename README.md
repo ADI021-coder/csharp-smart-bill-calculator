@@ -18,7 +18,9 @@ This project is an extension of a basic bill calculator that applies conditional
 ## Concepts Used
 - Arithmetic operations
 - Logical operators (`&&`, `||`)
-- Conditional statements
+- Conditional statements (if-else)
+- Looping (do-while)
+- String Interpolation / formatted output
 - Incremental enhancement of existing code
 
 ## Why this project?
