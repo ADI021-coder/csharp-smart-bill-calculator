@@ -89,7 +89,10 @@ The goal was to simulate how real software evolves over time through refactoring
 -Bill history storage
 -File handling
 -ASP.NET or Razor frontend integration
--Tech Used
+
+---
+
+## Tech Used
 -C#
 -.NET Console Application
 -VS Code
