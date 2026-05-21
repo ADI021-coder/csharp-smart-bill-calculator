@@ -97,3 +97,31 @@ The goal was to simulate how real software evolves over time through refactoring
 -.NET Console Application
 -VS Code
 -Git & GitHub
+
+---
+
+## Recent Refactor and OOP Improvements
+
+- Refactored the application from a single `Main()` procedural structure into a class-based architecture.
+- Introduced a dedicated `BillingApplication` class to improve code organization and scalability.
+- Implemented reusable validation methods for handling numeric user inputs.
+- Added object creation and method-driven application flow using `Run()`.
+- Improved readability and maintainability by separating responsibilities into individual methods.
+- Practiced core C# concepts including:
+  - Methods
+  - Classes and Objects
+  - Input Validation
+  - Loops
+  - Conditional Logic
+  - Reusable Functions
+  - Basic OOP Structure
+
+---
+
+### Current Features
+- Quantity validation
+- Price and tax validation
+- Dynamic billing calculation
+- Surcharge calculation logic
+- Repeat calculation option
+- Exception-safe numeric handling using `TryParse`
