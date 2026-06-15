@@ -1,0 +1,42 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<p>
+    This is a simple billing web application built using C# and .NET Blazor to showcase my current software development skills. The project was originally developed as a console application and later refactored into a web-based application, demonstrating the separation of business logic from the user interface.
+</p>
+
+<h2>Features</h2>
+<ul>
+    <li>Quantity validation</li>
+    <li>Price validation</li>
+    <li>Tax percentage validation</li>
+    <li>Automatic subtotal calculation</li>
+    <li>Automatic tax calculation</li>
+    <li>Conditional surcharge calculation</li>
+    <li>Interactive browser-based user interface</li>
+</ul>
+
+<h2>How It Works</h2>
+<p>The user enters:</p>
+<ul>
+    <li>Quantity of items</li>
+    <li>Price per item</li>
+    <li>Tax percentage</li>
+</ul>
+
+<p>
+    The application calculates the subtotal by multiplying the quantity by the price. It then calculates the tax amount based on the entered tax percentage and adds it to the subtotal to produce the final price.
+</p>
+
+<p>
+    <strong>Surcharge Rule:</strong> If the subtotal is ₹2,000 or greater and the calculated tax amount is at least 18% of the subtotal, an additional surcharge of ₹100 is automatically applied.
+</p>
+
+<p>
+    This project demonstrates object-oriented programming principles, input validation using TryParse, reusable business logic, and interactive web development using Blazor.
+</p>

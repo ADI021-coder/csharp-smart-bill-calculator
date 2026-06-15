@@ -1,0 +1,16 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.2.4">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>1646daee-cbbb-490c-8252-b57464b64cfd</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorBillingAppV1.ApiService\BlazorBillingAppV1.ApiService.csproj" />
+    <ProjectReference Include="..\BlazorBillingAppV1.Web\BlazorBillingAppV1.Web.csproj" />
+  </ItemGroup>
+
+</Project>

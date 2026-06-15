@@ -1,0 +1,125 @@
+﻿@page "/billing"
+<h3>Billing</h3>
+
+@using BlazorBillingAppV1.Client.Models
+
+<h3>Billing page</h3>
+<p> Hello this is a billing page</p>
+<div style="display: inline-flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+    <input @bind="quantityInput" placeholder="Enter Quantity" />
+    <button @onclick="GetQuantity">Enter</button>
+
+    <input @bind="priceInput" placeholder="Enter Price" />
+    <button @onclick="ValidatePrice">Enter</button>
+
+    <input @bind="taxInput" placeholder="Enter Tax Percentage" />
+    <button @onclick="ValidateTax">Enter</button>
+
+
+    <p>@message</p>
+    <p>@outputMessage</p>
+
+    <button @onclick="Calculate">Calculate</button>
+    <button @onclick="Reset">Reset</button>
+
+</div>
+@if (showStatement)
+{
+    @if (invoice.Surcharge)
+    {
+        <p>Surcharge of Rs 100/- is added to your purchase</p>
+    }
+    else
+    {
+        <p>No Surcharge will be added to your purchase</p>
+    }
+    <p>your final is @invoice.CalculateSubTotal(), and your tax is @invoice.CalculateTaxAmount(), and your final price is @invoice.FinalPrice()</p>
+}
+
+@code
+{
+    private BillingInvoice invoice = new BillingInvoice();
+    private bool showStatement = false;
+
+    private string quantityInput = "";
+    private int quantityOutput = 0;
+    private string message = "";
+
+    private string priceInput = "";
+    private double price = 0;
+
+    private string taxInput = "";
+    private double tax = 0;
+
+    private string outputMessage = "";
+
+    private void GetQuantity()
+    {
+        if (int.TryParse(quantityInput, out quantityOutput) && quantityOutput > 0)
+        {
+            message = "";
+            invoice.Quantity = quantityOutput;
+        }
+        else
+        {
+            message = "Please enter a valid quantity greater than 0.";
+            quantityOutput = 0;
+            invoice.Quantity = 0;
+        }
+    }
+
+    private double GetValidatedDouble(string userInput, string errorMessage)
+    {
+        double localOutput = 0;
+
+        if (double.TryParse(userInput, out localOutput) && localOutput > 0)
+        {
+            outputMessage = "";
+            return localOutput;
+        }
+        else
+        {
+            outputMessage = errorMessage;
+            return 0;
+        }
+    }
+
+    private void ValidatePrice()
+    {
+        outputMessage = "Please enter a valid price greater than 0.";
+        price = GetValidatedDouble(priceInput, outputMessage);
+        invoice.Price = price;
+    }
+
+    private void ValidateTax()
+    {
+        outputMessage = "Please enter a valid tax greater than 0.";
+        tax = GetValidatedDouble(taxInput, outputMessage);
+        invoice.Tax = tax;
+    }
+
+    private void Calculate()
+    {
+        invoice.FinalDisplay();
+        if (invoice.Quantity > 0 && invoice.Price > 0)
+        {
+            showStatement = true;
+        }
+    }
+
+    private void Reset()
+    {
+        quantityInput = "";
+        quantityOutput = 0;
+        message = "";
+        priceInput = "";
+        outputMessage = "";
+        taxInput = "";
+        tax = 0;
+        invoice.Quantity = 0;
+        invoice.Price = 0;
+        invoice.Tax = 0;
+
+        showStatement = false;
+    }
+}
